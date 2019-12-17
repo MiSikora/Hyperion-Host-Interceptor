@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="io_mehow_hhi_plugin_name">Host Interceptor</string>
+  <string name="io_mehow_hhi_select_hosts">Select host</string>
+</resources>

@@ -1,0 +1,28 @@
+apply plugin: "com.android.application"
+apply plugin: "kotlin-android"
+
+android {
+  signingConfigs {
+    hhi {
+      keyAlias "hhi"
+      keyPassword "hhihhi"
+      storeFile file("hhi.keystore")
+      storePassword "hhihhi"
+    }
+  }
+
+  defaultConfig {
+    applicationId "io.mehow.hyperion.sample"
+    versionCode 1
+    versionName "1.0"
+
+    signingConfig signingConfigs.hhi
+  }
+}
+
+dependencies {
+  implementation deps.kotlin.stdLib.jdk7
+  implementation deps.android.x.appCompat
+  implementation deps.hyperion.core
+  implementation project(":library")
+}
