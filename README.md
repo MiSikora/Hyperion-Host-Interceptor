@@ -6,7 +6,22 @@ A [Hyperion](https://github.com/willowtreeapps/Hyperion-Android) plugin that all
 
 ## Integration
 
-To integrate it with your app you need to add a dependency on this plugin to your project and add `HostInterceptor` to you `OkHttp` client.
+This library requires Java 8 bytecode. To enable Java 8 desugaring configure it in your Gradle script.
+
+```groovy
+android {
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  // For Kotlin projects
+  kotlinOptions {
+    jvmTarget = "1.8"
+  }
+}
+```
+
+To integrate it with your app you need to add a dependency on this plugin to your project and add `HostInterceptor` to your `OkHttp` client.
 
 ```groovy
 debugImplementation "io.mehow.hyperion:hyperion-host-interceptor:0.1.0"
