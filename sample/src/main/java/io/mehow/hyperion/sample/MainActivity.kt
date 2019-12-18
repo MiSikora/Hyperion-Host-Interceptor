@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
 import androidx.appcompat.app.AppCompatActivity
+import io.mehow.hyperion.HostInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import kotlin.concurrent.thread
@@ -14,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
     val client = OkHttpClient.Builder()
-        .addInterceptor((applicationContext as SampleApplication).interceptor)
+        .addInterceptor(HostInterceptor(this))
         .build()
     findViewById<View>(R.id.button).setOnClickListener {
       thread {

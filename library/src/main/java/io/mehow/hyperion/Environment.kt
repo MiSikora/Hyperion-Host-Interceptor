@@ -12,18 +12,35 @@ data class Environment(val name: String, val hostUrl: HttpUrl) {
     return "$name|$hostUrl"
   }
 
-  internal companion object {
-    val None = Environment("DEFAULT", "https://www.example.com".toHttpUrl())
+  companion object {
+    internal val None = Environment("DEFAULT", "https://www.example.com".toHttpUrl())
 
-    fun decode(value: String): Environment? {
+    internal fun decode(value: String): Environment? {
       val name = value.substringBeforeLast('|')
       val hostUrl = value.substringAfterLast('|').toHttpUrlOrNull()
       return if (name == value || hostUrl == null) null
       else Environment(name, hostUrl)
     }
 
-    fun preferences(context: Context): SharedPreferences {
+    internal fun preferences(context: Context): SharedPreferences {
       return context.getSharedPreferences("hyperion-host-interceptor", MODE_PRIVATE)
+    }
+
+    @JvmStatic fun init(context: Context, vararg environments: Environment) {
+      val preferences = preferences(context)
+      val filteredEnvironments = environments
+          .distinctBy { it.name }
+          .filter { it.name != None.name }
+          .sortedBy { it.name } + None
+
+      val selectedEnvironment = preferences.getSelectedEnvironment()
+      preferences.edit().clear().apply()
+      if (selectedEnvironment in filteredEnvironments) {
+        preferences.saveSelectedEnvironment(selectedEnvironment)
+      }
+      for (environment in filteredEnvironments) {
+        preferences.saveEnvironment(environment)
+      }
     }
   }
 }

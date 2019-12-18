@@ -24,23 +24,24 @@ android {
 To integrate it with your app you need to add a dependency on this plugin to your project and add `HostInterceptor` to your `OkHttp` client.
 
 ```groovy
-debugImplementation "io.mehow.hyperion:hyperion-host-interceptor:0.1.0"
+debugImplementation "io.mehow.hyperion:hyperion-host-interceptor:0.2.0"
 debugImplementation "com.willowtreeapps.hyperion:hyperion-core:$HyperionCurrentVersion"
 ```
 
 ```kotlin
-val interceptor = HostInterceptor(
+Environment.init(
     context,
     Environment("QA", "https://www.qa.com".toHttpUrl()),
     Environment("STAGING", "https://www.staging.com".toHttpUrl()),
     Environment("RELEASE", "https://www.release.com".toHttpUrl())
 )
+val interceptor = HostInterceptor(context)
 val client = OkHttpClient.Builder()
     .addInterceptor(interceptor)
     .build()
 ```
 
-Interceptor should be initialized before Hyperion initializes its plugins. The best place for it is the `Application` object. Check [the sample](sample/) for more information.
+Environments should be initialized before Hyperion initializes its plugins. The best place for it is the `Application` object. Check [the sample](sample/) for more information.
 
 ## License
 

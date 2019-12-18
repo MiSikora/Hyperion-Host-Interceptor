@@ -8,26 +8,9 @@ import okhttp3.Request
 import okhttp3.Response
 
 class HostInterceptor(
-  context: Context,
-  vararg environments: Environment
+  context: Context
 ) : Interceptor {
   private val preferences = Environment.preferences(context)
-
-  init {
-    val filteredEnvironments = environments
-        .distinctBy { it.name }
-        .filter { it.name != Environment.None.name }
-        .sortedBy { it.name } + Environment.None
-
-    val selectedEnvironment = preferences.getSelectedEnvironment()
-    preferences.edit().clear().apply()
-    if (selectedEnvironment in filteredEnvironments) {
-      preferences.saveSelectedEnvironment(selectedEnvironment)
-    }
-    for (environment in filteredEnvironments) {
-      preferences.saveEnvironment(environment)
-    }
-  }
 
   override fun intercept(chain: Chain): Response {
     val request = chain.request()
