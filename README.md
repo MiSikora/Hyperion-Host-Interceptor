@@ -2,7 +2,7 @@
 
 [![Build Status](https://app.bitrise.io/app/dbc8d96066f9deac/status.svg?token=BDRQdPph_6WuCSKSvTORKw&branch=master)](https://app.bitrise.io/app/dbc8d96066f9deac)
 
-[![Maven Central](https://img.shields.io/maven-central/v/io.mehow.hyperion/okhttp-client-interceptor.svg)](https://search.maven.org/search?q=g:io.mehow.hyperion and a:okhttp-host-interceptor)
+[![Maven Central](https://img.shields.io/maven-central/v/io.mehow.hyperion/okhttp-host-interceptor.svg)](https://search.maven.org/search?q=g:io.mehow.hyperion%20and%20a:okhttp-host-interceptor)
 [![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
 
 A [Hyperion](https://github.com/willowtreeapps/Hyperion-Android) plugin that allows you to change the host of [OkHttp](https://square.github.io/okhttp) client from the debug menu.
