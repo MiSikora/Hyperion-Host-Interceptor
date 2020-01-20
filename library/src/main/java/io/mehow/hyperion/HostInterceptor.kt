@@ -16,10 +16,17 @@ class HostInterceptor(
     val request = chain.request()
     val environment = preferences.getSelectedEnvironment()
 
-    val newRequest = if (environment == Environment.None) request
-    else request.changeHost(environment.hostUrl)
+    val newRequest = when {
+      environment == Environment.None -> request
+      request.headers[SkipHeaderName]?.toBoolean() == true -> request
+      else -> request.changeHost(environment.hostUrl)
+    }.removeSkipHeader()
 
     return chain.proceed(newRequest)
+  }
+
+  private fun Request.removeSkipHeader(): Request {
+    return newBuilder().removeHeader(SkipHeaderName).build()
   }
 
   private fun Request.changeHost(host: HttpUrl): Request {
@@ -29,5 +36,10 @@ class HostInterceptor(
         .port(host.port)
         .build()
     return newBuilder().url(newUrl).build()
+  }
+
+  companion object {
+    const val SkipHeaderName = "Skip-Host-Interception"
+    const val SkipHeader = "$SkipHeaderName: true"
   }
 }

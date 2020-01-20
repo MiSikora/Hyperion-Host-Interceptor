@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+Version 0.2.1 *(2020-01-20)*
+----------------------------
+
+* Add a header for skipping interception of requests.
+
 Version 0.2.0 *(2019-12-18)*
 ----------------------------
 * Change artifact name to 'okhttp-host-interceptor'.

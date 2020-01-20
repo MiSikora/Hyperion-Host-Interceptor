@@ -29,7 +29,7 @@ android {
 To integrate it with your app you need to add a dependency on this plugin to your project and add `HostInterceptor` to your `OkHttp` client.
 
 ```groovy
-debugImplementation "io.mehow.hyperion:okhttp-host-interceptor:0.2.0"
+debugImplementation "io.mehow.hyperion:okhttp-host-interceptor:0.2.1"
 debugImplementation "com.willowtreeapps.hyperion:hyperion-core:$HyperionCurrentVersion"
 ```
 
