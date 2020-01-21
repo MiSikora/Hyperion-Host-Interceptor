@@ -8,7 +8,7 @@ Version 0.2.1 *(2020-01-20)*
 
 Version 0.2.0 *(2019-12-18)*
 ----------------------------
-* Change artifact name to 'okhttp-host-interceptor'.
+* Change artifact name to `okhttp-host-interceptor`.
 * Initialize environments explicitly with `Environment.init()` method.
 
 Version 0.1.0 *(2019-12-18)*
