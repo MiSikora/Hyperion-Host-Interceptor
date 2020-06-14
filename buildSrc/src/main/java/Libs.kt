@@ -13,7 +13,7 @@ object Libs {
     const val AppCompat = "androidx.appcompat:appcompat:1.1.0"
   }
 
-  const val OkHttp = "com.squareup.okhttp3:okhttp:4.3.0"
+  const val OkHttp = "com.squareup.okhttp3:okhttp:4.7.2"
 
   object Hyperion {
     const val Version = "0.9.27"
