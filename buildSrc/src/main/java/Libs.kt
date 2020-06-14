@@ -25,7 +25,7 @@ object Libs {
 
   const val AutoService = "com.google.auto.service:auto-service:1.0-rc7"
 
-  const val MavenPublishGradlePlugin = "com.vanniktech:gradle-maven-publish-plugin:0.8.0"
+  const val MavenPublishGradlePlugin = "com.vanniktech:gradle-maven-publish-plugin:0.11.1"
 
   object Detekt {
     const val Version = "1.3.1"
