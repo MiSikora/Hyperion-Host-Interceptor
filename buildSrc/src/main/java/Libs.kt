@@ -28,7 +28,7 @@ object Libs {
   const val MavenPublishGradlePlugin = "com.vanniktech:gradle-maven-publish-plugin:0.11.1"
 
   object Detekt {
-    const val Version = "1.3.1"
+    const val Version = "1.9.1"
 
     const val GradlePluginId = "io.gitlab.arturbosch.detekt"
 

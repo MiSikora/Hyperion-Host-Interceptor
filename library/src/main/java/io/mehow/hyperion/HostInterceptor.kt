@@ -31,10 +31,10 @@ class HostInterceptor(
 
   private fun Request.changeHost(host: HttpUrl): Request {
     val newUrl = url.newBuilder()
-        .scheme(host.scheme)
-        .host(host.toUrl().host)
-        .port(host.port)
-        .build()
+      .scheme(host.scheme)
+      .host(host.toUrl().host)
+      .port(host.port)
+      .build()
     return newBuilder().url(newUrl).build()
   }
 
