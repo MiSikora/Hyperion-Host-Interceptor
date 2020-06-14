@@ -23,7 +23,7 @@ object Libs {
     const val Plugin = "com.willowtreeapps.hyperion:hyperion-plugin:$Version"
   }
 
-  const val AutoService = "com.google.auto.service:auto-service:1.0-rc6"
+  const val AutoService = "com.google.auto.service:auto-service:1.0-rc7"
 
   const val MavenPublishGradlePlugin = "com.vanniktech:gradle-maven-publish-plugin:0.8.0"
 
